@@ -1,7 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Link from 'next/link'
 import Popular from '../components/popular'
 
 export default function Home({popularmovies}) {

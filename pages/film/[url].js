@@ -1,5 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y,autoPlay } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+
+
 
 export default function FilmDetail({movie,recommendations}){
     return (
@@ -18,20 +23,32 @@ export default function FilmDetail({movie,recommendations}){
         <div className="recommended">
             <h3 className="recommended-title">Önerilenler</h3>
             <div className="recommended-content">
-                
+                <Swiper
+                spaceBetween={10}
+                slidesPerView={4}
+                navigation
+                autoPlay={1000}
+                pagination={{ clickable: true }}
+                >
+                   
                 {recommendations.results.map(recommended => (
-                    <Link href={`/film/${recommended.id}`} key={recommended.id}>
+                   <SwiperSlide key={recommended.id}> <Link href={`/film/${recommended.id}`} >
                         <a>
                             <p className="vote">{recommended.vote_average}</p>
                             <p className="adult" data-adult={recommended.adult}>+18</p>
-                            <div className="cover" style={{backgroundImage:`url(https://www.themoviedb.org/t/p/original${recommended.backdrop_path})`}}></div>
+                            <div className="cover" style={{backgroundImage:`url(https://www.themoviedb.org/t/p/w220_and_h330_face${recommended.backdrop_path})`}}></div>
                             <h3 >{recommended.title}</h3>
                         </a>
                     </Link>
+                    </SwiperSlide>
                 ))}
+                </Swiper>
             </div>
         </div>
         <style jsx>{`
+            .swiper-slide{
+                height:200px;
+            }
             .container{
                 width:1100px;
                 margin:0 auto;
@@ -49,16 +66,13 @@ export default function FilmDetail({movie,recommendations}){
                     margin-bottom:20px;
                 }
                 .recommended-content{
-                    display:flex;
-                    gap:10px;
-                    flex-wrap:wrap;
-                    
+                    height:200px;
                     
                     a{
                         height:200px;
-                        width:calc(25% - 10px);
+                        width:100%;
                         position:relative;
-                        margin-bottom:15px;
+                        display:inline-block;
                         .cover{
                             width:100%;
                             height:100%;

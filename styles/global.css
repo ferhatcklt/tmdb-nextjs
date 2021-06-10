@@ -13,3 +13,15 @@ html, body{
 body{
     background-color: #ddd;
 }
+.swiper-button-next, .swiper-button-prev{
+    color:tomato;
+    width:30px;
+    height:30px;
+    background-color:#fff;
+    background-size: 0px;
+
+    
+}
+.swiper-button-next::after,.swiper-button-prev::after{
+    font-size:18px;
+}
