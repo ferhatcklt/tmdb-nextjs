@@ -29,6 +29,9 @@ export default function FilmDetail({movie,recommendations}){
                 navigation
                 pagination={{ clickable: true }}
                 breakpoints={{
+                    0: {
+                        slidesPerView: 2,
+                    },
                     580: {
                         slidesPerView: 2,
                     },
