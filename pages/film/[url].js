@@ -139,7 +139,7 @@ export default function FilmDetail({movie,recommendations}){
                 margin:0px auto;
                 position:relative;
                 padding:20px;
-                height:400px;
+                height:auto;
 
                 h3 {
                     font-size:30px;
