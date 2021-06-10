@@ -28,22 +28,42 @@ export default function Header(){
             background-color:#fff;
             border-bottom:1px solid #ccc;
             
-            ul{
-                display:flex;
+            nav{   
+                width:80%;
+                margin:0 auto;
+                ul{
+                    display:flex;
 
-                li{
-                     
-                    a {
-                        display:flex;
-                        text-decoration:none;
-                        height:60px;
-                        align-items:center;
-                        padding:0 20px;
-                        color:#333;
+                    li{
+                        position:relative;
+                        transition:300ms;
+                        
+                        a {
+                            display:flex;
+                            text-decoration:none;
+                            height:60px;
+                            align-items:center;
+                            padding:0 20px;
+                            color:#333;
+                            transition:300ms;
+
+                            :hover{
+                                color:#fff;
+                            }
+                        }
+
+                        :hover {
+                            background-color:#000;
+                        }
                     }
                 }
             }
         }
+        @media screen and(max-width: 580px){
+                header nav {
+                    width:90%;
+                }
+            }
     `}</style>
     </>
     

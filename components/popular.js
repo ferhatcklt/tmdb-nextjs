@@ -17,7 +17,7 @@ export default function Popular({popularmovies}){
         </div>
         <style jsx>{`
             .popular{
-                width:1200px;
+                width:80%;
                 margin:0 auto;
                 padding:20px 0;
 
@@ -32,7 +32,7 @@ export default function Popular({popularmovies}){
                 }
                 
                 a{
-                    width:calc(25%-10px);
+                    width:calc(25% - 10px);
                     position:relative;
 
                     h3 {
@@ -83,6 +83,22 @@ export default function Popular({popularmovies}){
                         font-weight:900;
                         border:3px solid red;
                     }
+                }
+            }
+            @media screen and(max-width: 1024px){
+                .popular a{
+                    width:calc(33.333% - 10px);
+                }
+                
+            }
+            @media screen and(max-width: 768px){
+                .popular a{
+                    width:calc(50% - 10px);
+                }
+            }
+            @media screen and(max-width: 580px){
+                .popular {
+                    width:90%;
                 }
             }
         `}</style>

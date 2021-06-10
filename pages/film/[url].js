@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y,autoPlay } from 'swiper'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, breakpoints } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 
@@ -27,8 +27,18 @@ export default function FilmDetail({movie,recommendations}){
                 spaceBetween={10}
                 slidesPerView={4}
                 navigation
-                autoPlay={1000}
                 pagination={{ clickable: true }}
+                breakpoints={{
+                    580: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                  }}
                 >
                    
                 {recommendations.results.map(recommended => (
@@ -50,7 +60,7 @@ export default function FilmDetail({movie,recommendations}){
                 height:200px;
             }
             .container{
-                width:1100px;
+                width:80%;
                 margin:0 auto;
                 position:relative;
                 
@@ -125,7 +135,7 @@ export default function FilmDetail({movie,recommendations}){
 
             }
             .movie{
-                width:1100px;
+                width:100%;
                 margin:0px auto;
                 position:relative;
                 padding:20px;
@@ -161,6 +171,24 @@ export default function FilmDetail({movie,recommendations}){
                         height:100%;
 
                     }
+                }
+            }
+            @media screen and(max-width: 1024px){
+                .movie{
+                    width:100%;
+                    padding:20px 5%;
+                }
+                .container{
+                    width:100%;
+                }
+            }
+            @media screen and(max-width: 768px){
+                .movie{
+                    width:100%;
+                    padding:20px 5%;
+                }
+                .container{
+                    width:100%;
                 }
             }
         `}</style>
